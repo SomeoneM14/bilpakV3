@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/itaya/Desktop/bilpakNew/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/my_program.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\my_program.dir\\src\\commands.cpp.obj -c C:\\Users\\itaya\\Desktop\\bilpakNew\\server\\src\\commands.cpp",
+  "file": "C:/Users/itaya/Desktop/bilpakNew/server/src/commands.cpp",
+  "output": "CMakeFiles/my_program.dir/src/commands.cpp.obj"
+},
+{
+  "directory": "C:/Users/itaya/Desktop/bilpakNew/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/my_program.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\my_program.dir\\src\\main.cpp.obj -c C:\\Users\\itaya\\Desktop\\bilpakNew\\server\\src\\main.cpp",
+  "file": "C:/Users/itaya/Desktop/bilpakNew/server/src/main.cpp",
+  "output": "CMakeFiles/my_program.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/itaya/Desktop/bilpakNew/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/my_program.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\my_program.dir\\src\\server.cpp.obj -c C:\\Users\\itaya\\Desktop\\bilpakNew\\server\\src\\server.cpp",
+  "file": "C:/Users/itaya/Desktop/bilpakNew/server/src/server.cpp",
+  "output": "CMakeFiles/my_program.dir/src/server.cpp.obj"
+}
+]

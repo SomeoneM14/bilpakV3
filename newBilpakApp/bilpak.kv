@@ -1,0 +1,1042 @@
+#:kivy 2.0.0
+
+<main_screen>:
+    name:'bilpaklayout'
+    background_color: 0.4, 0.6, 0.8, 1
+    color: 0, 0, 0, 1
+    BoxLayout:
+        id: main_layout
+        orientation: 'vertical'
+        background_color: 0.4, 0.6, 0.8, 1
+        color: 0, 0, 0, 1
+        TabbedPanel:
+            tab_width: self.size[0]/len(self.tab_list)
+            tab_height: 130
+            do_default_tab: False
+            background_color: 0.4, 0.6, 0.8, 1
+
+            TabbedPanelItem:
+
+                text: 'Bilpak'
+                color: (0.5, 0.6, 1, 1.0)   
+                background_color: 0.4, 0.6, 0.8, 1  
+                ##
+
+                
+
+                MDExpansionPanel:
+                    id: panel
+                    pos_hint: {"center_x": .5, "center_y": .5}
+
+                    MDExpansionPanelHeader:
+
+                        MDListItem:
+                            theme_bg_color: "Custom"
+                            md_bg_color: self.theme_cls.surfaceContainerLowColor
+                            ripple_effect: False
+
+                            MDListItemSupportingText:
+                                text: "Stuff i stole from Alon"
+
+                            TrailingPressedIconButton:
+                                id: chevron
+                                icon: "chevron-right"
+                                on_release: app.tap_expansion_chevron(panel, chevron)
+
+                    MDExpansionPanelContent:
+                        orientation: "vertical"
+                        padding: "12dp", 0, "12dp", 0
+                        MDLabel:
+                            text:"test"
+                            adaptive_height: True
+                            padding_x: "16dp"
+                            padding_y: "12dp"
+                        MDGridLayout:
+                            cols:1
+                            BoxLayout:
+                                orientation: 'horizontal'
+                                background_color: 0.1, 0.3, 0.3, 10
+                                MDScrollView:
+                                    BoxLayout:
+                                        id: devicesdiversify
+                                        orientation: 'vertical'
+                                        size_hint_y: None
+                                        height: self.minimum_height
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button: 
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Open website"
+                                                on_release:app.diversifywebhandler()
+                                            TextInput:
+                                                hint_text: "Enter the url of the website you wish"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id:diversifywebhandler
+                                                multinline:True
+
+                                        # 'runcmd': True
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:3
+                                            Button:
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Run with UAC"
+                                                on_release:app.diversifyprogramvl2()
+                                            Button:
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Run without UAC"
+                                                on_release:app.diversifyruncmd()
+                                            TextInput:
+                                                hint_text: "Enter the command"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id:diversifyruncmd
+                                                multinline:True
+
+            
+                                        # 'typestringwithhumandelay': True
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Type a String like a human"
+                                                on_release:app.diversifytypestringwithhumandelay()
+                                            TextInput:
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                hint_text: "Enter the text to enter with a delay between each keystroke"
+                                                id:diversifytypestringwithhumandelay
+                                                multinline:True
+
+                                        # 'setvolume': True
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Set the volume"
+                                                on_release:app.diversifysetvolume()
+                                            TextInput:
+                                                hint_text: "In percentage, 0 - 100"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id:diversifysetvolume
+                                                multinline:True
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Make the screen rotate"
+                                                on_release:app.diversifymakethescreendorotations()
+                                            TextInput:
+                                                hint_text: "For how long to do the rotations? (seconds)"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id:diversifymakethescreendorotations
+                                                multinline:True
+
+
+
+                                        # 'inviscurr': True
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Send to background highlight"
+                                                on_release:app.diversifyinviscurr()
+                                            TextInput:
+                                                hint_text: "The app that is focused(windows), will be sent to the background; in seconds"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id:diversifyinviscurr
+                                                multinline:True
+
+            
+
+                                        # maximizeprocessvianame
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols: 3
+                                            Button:
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text: "Maximize Process"
+                                                on_release: app.diversifymaximizeprocessvianame()
+                                            Button:
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text: "Minimize Process"
+                                                on_release: app.diversifyminimizeprocessvianame()
+                                            TextInput:
+                                                hint_text: "Enter exe name"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id: diversifychangeapperanjceprocessvianame
+                                                multiline: True
+
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:3
+                                            Button:
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Always on top"
+                                                on_release:app.diversifyalwaysontop()
+                                            Button:
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Unset Always on top"
+                                                on_release:app.diversifyunsetalwaysontop()
+                                            TextInput:
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                hint_text: "Enter exe name"
+                                                id:diversifyalwaysontop
+                                                multinline:True
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Turn the Screen black"
+                                                on_release:app.diversifyblackenscreen()
+                                            TextInput:
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                hint_text: "Duration in seconds"
+                                                id:diversifyblackenscreen
+                                                multinline:True
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Kill a process"
+                                                on_release:app.diversifyprockill()
+                                            TextInput:
+                                                hint_text: "Enter exe name"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id:diversifyprockill
+                                                multinline:True
+
+            
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:3
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Hide a process"
+                                                on_release:app.diversifyhideprocessvianame()
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Foreground a process\nfrom the background"
+                                                on_release:app.diversifyshowprocessvianame()
+                                            TextInput:
+                                                hint_text: "Enter exe name"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id:diversifyshowprocessvianame
+                                                multinline:True
+
+
+                                        # 'texttospeech': True
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:3
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Speak in\nany language"
+                                                on_release:app.diversifyspeakxlanguage()
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Windows TTS"
+                                                on_release:app.diversifytexttospeech()
+                                            TextInput:
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id:diversifytexttospeech
+                                                multinline:True
+
+            
+
+                                        # dvdtimeout
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols: 2
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text: "Set DVD Timeout\n(0 to disable)" 
+                                                on_release: app.diversifydvdtimeout()
+                                            TextInput:
+                                                hint_text: "Enter timeout in seconds"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id: diversifydvdtimeout
+                                                multiline: True
+
+                                        # playytvidbetweentime
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 180 
+                                            cols: 2
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text: "Play YouTube Video\nBackground"
+                                                on_release: app.diversifyplayytvidbetweentime()
+                                            TextInput:
+                                                hint_text: "Enter the YouTube video URL"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id: diversifyplayytvidbetweentimeurl
+                                                multiline: True
+                                        GridLayout: 
+                                            size_hint_y: None
+                                            height: 100
+                                            cols: 2
+                                            TextInput:
+                                                hint_text: "Vid Start Time, in seconds (optional)"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id: diversifyplayytvidbetweentimestarttime
+                                                multiline: True 
+                                            TextInput:
+                                                hint_text: "Vid End Time, in seconds (optional)"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id: diversifyplayytvidbetweentimeendtime
+                                                multiline: True
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 10
+                                            background_color: 0.1, 0.3, 0.3, 10
+                                            cols:1
+                                            Label:
+                                                underline: True
+                                                
+                                                text:""
+                                                bold: True
+                                                color: (0.7, 0.1, 0.1, 0.7)
+                                        
+                                        # playytvidbetweentimefullscreen
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 180
+                                            cols: 2
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text: "Play YouTube Video\nFullscreen"
+                                                on_release: app.diversifyplayytvidbetweentimefullscreen()
+                                            TextInput:
+                                                hint_text: "Enter the YouTube video URL"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id: diversifyplayytvidbetweentimeurlfullscreen
+                                                multiline: True
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 100
+                                            cols: 2
+                                            TextInput:
+                                                hint_text: "Vid Start Time, in seconds (optional)"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id: diversifyplayytvidbetweentimestarttimefullscreen
+                                                multiline: True
+                                            TextInput:
+                                                hint_text: "Vid End Time, in seconds (optional)"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id: diversifyplayytvidbetweentimeendtimefullscreen
+                                                multiline: True
+                                            
+
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Flip screen: normal"
+                                                on_release:app.diversifyscreenlandscape()
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Flip screen: upsidedown"
+                                                on_release:app.diversifyscreenflipped()
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Flip screen: right"
+                                                on_release:app.diversifyscreenportraitflipped()
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Flip screen: left"
+                                                on_release:app.diversifyscreenportrait()
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Per click,\nlag windows(Enable)"
+                                                on_release:app.diversifywindowslagclicksoundenable()
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Per click,\nlag windows(Disable)"
+                                                on_release:app.diversifywindowslagclicksounddisable()
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Swap RMB and LMB"
+                                                on_release:app.diversifyswappedswaprmbandlmb()
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Unswap RMB and LMB"
+                                                on_release:app.diversifyunswappedswaprmbandlmb()
+
+
+
+                                        # 'meandtheboys': False
+
+                                        # ... continue in this manner for the rest of the strings ...
+                                        # 'meandtheboys': False
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:1
+                                            Button:
+                                                
+                                                text: "Me and the boys!"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.diversifymeandtheboys()
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:1
+                                            Button:
+                                                
+                                                text: "Download And Install Chrome"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.diversifyinstallchrome()
+                                        # 'terminateunknownprocesses': False
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:1
+                                            Button:
+                                                
+                                                text: "Terminate unknown processes"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.diversifyterminateunknownprocesses()
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:1
+                                            Button:
+                                                
+                                                text: "Freeze unknown processes"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.freeze_unknown_processes()
+
+                                        # 'terminateunknownprocesses': False
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                
+                                                text: "Enable auto termination"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.diversifyenableterminateunknownprocesses()
+                                            Button:
+                                                
+                                                text: "Disable auto termination"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.diversifydisableterminateunknownprocesses()
+
+
+
+                                        # 'freezeallprocesses': False
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                
+                                                text: "Freeze all processes"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.diversifyfreezeallprocesses()
+                                            Button:
+                                                
+                                                text: "Unfreeze all the processes"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.diversifyunfreezeallprocesses()
+
+
+                
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:3
+                                            Button:
+                                                
+                                                text:"Payload 1"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                on_release:app.diversifypayload_1()
+                                            Button:
+                                                
+                                                text:"Payload 2"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                on_release:app.diversifypayload_2()
+                                            Button:
+                                                
+                                                text:"Payload 3"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                on_release:app.diversifypayload_3()
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:3
+                                            Button:
+                                                
+                                                text:"Payload 4"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                on_release:app.diversifypayload_4()
+                                            Button:
+                                                
+                                                text:"Payload 5"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                on_release:app.diversifypayload_5()
+                                            Button:
+                                                
+                                                text:"Payload 6"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                on_release:app.diversifypayload_6()
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:1
+                                            Button:
+                                                
+                                                text: "Hide self"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.diversifyhideselfexecutable()
+
+                                        # 'restartexplorer': False
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:1
+                                            Button:
+                                                
+                                                text: "Restart Explorer"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.diversifyrestartexplorer()
+
+                                                                    # ... continue this pattern for all strings ...
+                                        # 'windowslagclicksound': True
+
+
+
+                                    
+                                        # ... continue this pattern for all strings ...
+
+                                    
+
+                                        # ... continue this pattern for all strings ...
+
+
+
+
+
+                                        # 'webhandler': True
+
+                                        # ... continue in this manner for the rest of the strings ...
+
+
+
+                                        # 'playtone': True
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:3
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Play tone"
+                                                on_release:app.diversifyplaytone()
+                                            TextInput:
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                hint_text: "What is the frequency?(hz)"
+                                                id:diversifyplaytonehz
+                                                multinline:True
+                                            TextInput:
+                                                hint_text: "For how long, in milliseconds"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id:diversifyplaytoneduration
+                                                multinline:True
+
+                                        # 'playshepardtone': True
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:3
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Initialize Shepard Tone"
+                                                on_release:app.diversifyplayshepardtone()
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:3
+                                            TextInput:
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                hint_text: "Start frequency(hz)"
+                                                id:diversifyplayshepardtonestarthz
+                                                multinline:True
+                                            TextInput:
+                                                hint_text: "End frequency(hz)"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id:diversifyplayshepardtoneendhz
+                                                multinline:True
+                                            TextInput:
+                                                hint_text: "For how long(in seconds)"
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id:diversifyplayshepardtoneduration
+                                                multinline:True
+
+
+                                        # 'disablefirewall': False
+
+                                
+
+                                        # 'enablemouse': False
+
+                                        # ... continue in this manner for the rest of the strings ...
+                                        # 'enablemouse': False
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                
+                                                text: "Enable mouse"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.diversifyenablemouse()
+                                            Button:
+                                                
+                                                text: "Disable mouse"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.diversifydisablemouse()
+
+                                        # 'enablekeyboard': False
+
+                                        # ... continue in this manner for the rest of the strings ...
+                                        # 'enablekeyboard': False
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                
+                                                text: "Enable keyboard"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.diversifyenablekeyboard()
+
+                                            Button:
+                                                
+                                                text: "Disable Keyboard"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.diversifydisablekeyboard()
+
+                                        # 'presskeys': True
+
+                                        # ... continue in this manner for the rest of the strings ...
+                                        # 'presskeys': True
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Press keys"
+                                                on_release:app.diversifypresskeys()
+                                            TextInput:
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id:diversifypresskeys
+                                                multinline:True
+
+                                        # 'writetext': True
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            Button:
+                                                
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold: True
+                                                text:"Write text"
+                                                on_release:app.diversifywritetext()
+                                            TextInput:
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                id:diversifywritetext
+                                                multinline:True
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:2
+                                            TextInput:
+                                                background_color: 0.1, 0.3, 0.3, 10
+                                                bold: True
+                                                hint_text:"Override the subnet, e.g. '192.168.1.'"
+                                                id:overridensubnetdiversify
+                                                multinline:True
+                                            Button:
+                                                
+                                                text: "Toggle school subnets\n(Status: Disabled)" 
+                                                background_color: (0.8, 0.2, 0.7, 1)
+                                                color: (0.2, 0.6, 1, 1)
+                                                bold:True
+                                                on_press: app.diverisfy_subnet_ofschlang(self)
+
+
+                                        GridLayout:
+                                            size_hint_y: None
+                                            height: 160
+                                            cols:1
+                                            Button:
+                                                
+                                                text: "Scan for diversified hosts"
+                                                background_color: 0.6, 0.8, 1, 1
+                                                on_press: self.color = (0.5, 0.8, 1, 0.8)
+                                                on_release: self.color = ((0.9, 0.9, 0.94, 1))
+                                                color: (0.9, 0.9, 0.94, 1)
+                                                bold:True
+                                                on_press: app.scan_for_hosts()
+
+
+
+
+ 
+
+            TabbedPanelItem:
+                text: 'Bilpak Admin Tools'
+                 
+                color: (0.5, 0.6, 1, 1.0)   
+                background_color: 0.4, 0.6, 0.8, 1
+                MDExpansionPanel:
+                    id: panel
+                    pos_hint: {"center_x": .5, "center_y": .5}
+
+                    MDExpansionPanelHeader:
+
+                        MDListItem:
+
+                            MDListItemSupportingText:
+                                text: "Supporting text"
+
+                            TrailingPressedIconButton:
+                                id: chevron
+                                icon: "chevron-right"
+                                on_release: app.tap_expansion_chevron(panel, chevron)
+
+                    MDExpansionPanelContent:
+                        orientation: "vertical"
+                        padding: "12dp", 0, "12dp", 0
+
+                        MDLabel:
+                            text: "Channel information"
+                            adaptive_height: True
+                            padding_x: "16dp"
+                            padding_y: "12dp"
+
+                        MDListItem:
+
+                            MDListItemLeadingIcon:
+                                icon: "email"
+
+                            MDListItemHeadlineText:
+                                text: "Email"
+
+                            MDListItemSupportingText:
+                                text: "kivydevelopment@gmail.com"
+
+                        MDListItem:
+
+                            MDListItemLeadingIcon:
+                                icon: "instagram"
+
+                            MDListItemHeadlineText:
+                                text: "Instagram"
+
+                            MDListItemSupportingText:
+                                text: "Account"
+
+                            MDListItemTertiaryText:
+                                text: "www.instagram.com/KivyMD"
