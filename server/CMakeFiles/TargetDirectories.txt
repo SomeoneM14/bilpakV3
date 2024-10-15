@@ -1,3 +1,0 @@
-C:/Users/itaya/Desktop/bilpakNew/server/CMakeFiles/my_program.dir
-C:/Users/itaya/Desktop/bilpakNew/server/CMakeFiles/edit_cache.dir
-C:/Users/itaya/Desktop/bilpakNew/server/CMakeFiles/rebuild_cache.dir
