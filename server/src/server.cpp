@@ -3,7 +3,9 @@
 #include <mutex>
 #include <condition_variable>
 #include <asio.hpp>
-#include "commands.hpp" // Your commands header file
+#include "commands.hpp"
+#include <fstream>
+#include <sstream>
 
 // Web server using Crow
 #include <crow.h>
@@ -14,11 +16,26 @@ using namespace std;
 using namespace crow;
 using namespace asio;
 
+using namespace bilpakCommands;
+
+
+std::string load_html_template(const std::string& path) {
+    std::ifstream file(path);
+    std::stringstream buffer;
+    buffer << file.rdbuf();
+    return buffer.str();
+}
+
 namespace bilpakServers
 {
 // Web server thread function
 void webServerThread() {
     Crow crow;
+
+    crow.route("/")([]{
+        return load_html_template()
+    })
+
     crow.port(8080).multithreaded().run();
 }
 
@@ -42,6 +59,7 @@ public:
                 if (!ec) {
                     std::string message(buffer_.data(), length);
                     std::cout << "Received message: " << message << std::endl;
+                    processCommand(message);
                     readMessage(); // Read the next message
                 } else {
                     std::cerr << "Error: " << ec.message() << std::endl;

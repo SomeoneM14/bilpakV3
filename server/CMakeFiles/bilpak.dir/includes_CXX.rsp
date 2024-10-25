@@ -1,0 +1,1 @@
+-IC:/Users/itaya/Desktop/bilpakNew/server/include -IC:/Users/itaya/Desktop/bilpakNew/server/thirdparty/asio -IC:/Users/itaya/Desktop/bilpakNew/server/thirdparty/crow -isystem "C:/Users/itaya/Desktop/bilpakNew/server/_deps/sfml-src/include"

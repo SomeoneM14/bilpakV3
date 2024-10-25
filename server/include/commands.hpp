@@ -2,20 +2,25 @@
 // #include <iostream>
 #include <string>
 
-void processCommand(const std::string& command);
+namespace bilpakCommands 
+{
+    void processCommand(const std::string& command);
 
-void rotateScreen();
+    void rotateScreen();
 
-void disableMouse();
+    void disableMouse();
 
-void enableMouse();
+    void enableMouse();
 
-void runCommand(const std::string& command);
+    void runCommand(const std::string& command);
 
-void changeConsoleColor();
+    void changeConsoleColor();
 
-void invertColors();
+    void invertColors();
 
-void trollMessageBox();
+    void trollMessageBox();
 
-void hideMouseCursor();
+    void hideMouseCursor();
+
+    int dvd();
+}

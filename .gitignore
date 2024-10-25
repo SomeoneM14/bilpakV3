@@ -1,0 +1,7 @@
+/build
+*.cmake
+*.exe
+/.vscode
+/server/.vscode
+CMakeCache.txt
+/server/_deps

@@ -19,6 +19,7 @@ from kivymd.uix.behaviors import RotateBehavior
 from kivymd.uix.expansionpanel import MDExpansionPanel
 from kivymd.uix.list import MDListItemTrailingIcon
 from kivy.uix.behaviors import ButtonBehavior
+from kivymd.uix.scrollview import MDScrollView
 
 
 class TrailingPressedIconButton(
@@ -32,13 +33,10 @@ class main_screen(Screen):
 class bilpak(MDApp):
     def build(self):
         return main_screen()
-    def tap_expansion_chevron(
-        self, panel: MDExpansionPanel, chevron: TrailingPressedIconButton
-    ):
+    def tap_expansion_chevron(self, panel: MDExpansionPanel, chevron: TrailingPressedIconButton):
         panel.open() if not panel.is_open else panel.close()
-        panel.set_chevron_down(
-            chevron
-        ) if not panel.is_open else panel.set_chevron_up(chevron)
+        panel.set_chevron_down(chevron) if not panel.is_open else panel.set_chevron_up(chevron)
+        print("test")
 
 if __name__ == '__main__':
     bilpak().run()

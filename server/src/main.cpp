@@ -8,6 +8,7 @@
 
 
 using namespace bilpakServers;
+using namespace bilpakCommands;
 
 void updateBilpak()
 {
@@ -28,7 +29,7 @@ int main(int argc,char** argv) {
     // }
     // runCommand("tree");
     // int variablequickrandomthing;
-
+    dvd();
     serversThread.join();
 
     //trollMessageBox();
