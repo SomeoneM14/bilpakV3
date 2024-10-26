@@ -1,4 +1,5 @@
 import socket
+import requests
 
 def main():
     # Create a TCP/IP socket
@@ -23,4 +24,5 @@ def main():
         client_socket.close()
 
 if __name__ == '__main__':
-    main()
+    requests.get("http://127.0.0.1:8080/api/command",data="test")
+    #main()

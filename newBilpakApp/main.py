@@ -32,11 +32,18 @@ class main_screen(Screen):
     pass
 class bilpak(MDApp):
     def build(self):
+        self.network_search_width=0
         return main_screen()
     def tap_expansion_chevron(self, panel: MDExpansionPanel, chevron: TrailingPressedIconButton):
         panel.open() if not panel.is_open else panel.close()
         panel.set_chevron_down(chevron) if not panel.is_open else panel.set_chevron_up(chevron)
         print("test")
+    def scan(self):
+        print(self.network_search_width)
+    def change_search_width(self,value,active):
+        if active:
+            self.network_search_width=value
+            print("changed to",value)
 
 if __name__ == '__main__':
     bilpak().run()

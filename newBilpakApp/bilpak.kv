@@ -2,15 +2,17 @@
 
 <main_screen>:
     name:'bilpaklayout'
+    color: (0.5, 0.6, 1, 1.0)   
     background_color: 0.4, 0.6, 0.8, 1
-    color: 0, 0, 0, 1
     MDScrollView:
+        color: (0.5, 0.6, 1, 1.0)   
+        background_color: 0.4, 0.6, 0.8, 1
         do_scroll_x: False
         BoxLayout:
             id: main_layout
             orientation: 'vertical'
+            color: (0.5, 0.6, 1, 1.0)   
             background_color: 0.4, 0.6, 0.8, 1
-            color: 0, 0, 0, 1
             adaptive_height: True
             TabbedPanel:
                 tab_width: self.size[0]/len(self.tab_list)
@@ -83,3 +85,45 @@
 
                                 MDListItemTertiaryText:
                                     text: "www.instagram.com/KivyMD"
+                TabbedPanelItem:
+                    text: 'Screen Control'
+                    
+                    color: (0.5, 0.6, 1, 1.0)   
+                    background_color: 0.4, 0.6, 0.8, 1
+            MDGridLayout:
+                cols:2
+                adaptive_height: True
+                md_bg_color: app.theme_cls.primaryColor
+                color: (1, 1, 1, 1.0)   
+                background_color: 0.4, 0.6, 0.8, 1
+                MDButton:
+                    style: "filled"
+                    on_release:app.scan()
+                    MDButtonText:
+                        text: "Scan Network"
+                MDSegmentedButton:
+                    color: (1,1, 1, 1.0)   
+                    id: network_width_button
+                    background_color: 1, 1, 1, 1
+                    MDSegmentedButtonItem:
+                        id: network_width_button1
+                        on_active:app.change_search_width(0,self.active)
+                        MDSegmentButtonLabel:
+                            text: "All network"
+
+                    MDSegmentedButtonItem:
+                        id: network_width_button2
+                        on_active:app.change_search_width(8,self.active)
+                        MDSegmentButtonLabel:
+                            text: "8"
+
+                    MDSegmentedButtonItem:
+                        id: network_width_button3
+                        on_active:app.change_search_width(16,self.active)
+                        MDSegmentButtonLabel:
+                            text: "16"
+                    MDSegmentedButtonItem:
+                        id: network_width_button4
+                        on_active:app.change_search_width(24,self.active)
+                        MDSegmentButtonLabel:
+                            text: "24"

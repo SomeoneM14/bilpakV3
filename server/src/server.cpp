@@ -21,22 +21,37 @@ using namespace bilpakCommands;
 
 std::string load_html_template(const std::string& path) {
     std::ifstream file(path);
+    
+    if (!file) {
+        std::cerr << "Error: Could not open file at " << path << std::endl;
+        return "";
+    }
+
     std::stringstream buffer;
     buffer << file.rdbuf();
+
+    if (buffer.str().empty()) {
+        std::cerr << "Error: File is empty or failed to read content." << std::endl;
+    }
+
     return buffer.str();
 }
-
+crow::SimpleApp crowApp;
 namespace bilpakServers
 {
 // Web server thread function
 void webServerThread() {
-    Crow crow;
+    
+    crowApp.route_dynamic("/")([]{
+        return load_html_template("src/templates/index.html");
+    });
 
-    crow.route("/")([]{
-        return load_html_template()
-    })
+    crowApp.route_dynamic("/api/command")([](const crow::request& req){
+        std::cout << req.body << std::endl;
+        return "0";
+    });
 
-    crow.port(8080).multithreaded().run();
+    crowApp.port(8080).multithreaded().run();
 }
 
 // Socket server thread function

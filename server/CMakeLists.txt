@@ -20,6 +20,7 @@ FetchContent_MakeAvailable(SFML)
 include_directories(include)
 include_directories(thirdparty/asio)
 include_directories(thirdparty/crow)
+include_directories(src/templates)
 
 # Source files
 file(GLOB_RECURSE SOURCES "src/*.cpp")

@@ -46,9 +46,9 @@ std::vector<std::string> static splitSentenceIntoWords(const std::string& senten
         return words; // array of type std::string
 }
 
-float getRand(float min, float max)
+int getRand(int min, int max)
 {
-    return (float)rand() % (max - min) + min;
+    return (int)rand() % (max - min) + min;
 }
 
 int randomBool()
@@ -294,4 +294,5 @@ namespace bilpakCommands
 
         return 0;
     }
+    
 }

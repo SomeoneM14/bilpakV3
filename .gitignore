@@ -5,3 +5,4 @@
 /server/.vscode
 CMakeCache.txt
 /server/_deps
+/server/Makefile
