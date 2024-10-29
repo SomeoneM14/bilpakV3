@@ -24,5 +24,5 @@ def main():
         client_socket.close()
 
 if __name__ == '__main__':
-    requests.get("http://127.0.0.1:8080/api/command",data="test")
-    #main()
+    #requests.get("http://127.0.0.1:8080/api/command",data="test")
+    main()
