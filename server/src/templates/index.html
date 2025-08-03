@@ -1,9 +1,110 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Bilpak</title>
-    </head>
-    <body>
-        <h1>Bilpak</h1>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .active-btn {
+            transform: scale(0.95);
+            background-color: #4a5568 !important;
+        }
+        .tab-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+        .tab-btn {
+            flex-shrink: 0;
+        }
+        .button-clicked {
+            background-color: #2d3748 !important;
+        }
+        .alert {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f56565;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex justify-center items-center min-h-screen p-4">
+    <div class="alert" id="alert-box">Button Clicked!</div>
+    <div class="w-full max-w-md p-4 bg-gray-800 rounded-lg shadow-lg">
+        <!-- Scrollable Tab Buttons -->
+        <div class="tab-container flex space-x-2 mb-4 justify-start overflow-x-auto p-2 bg-gray-700 rounded">
+            <button class="tab-btn bg-blue-600 px-4 py-2 rounded transition" data-tab="1">Tab 1</button>
+            <button class="tab-btn bg-gray-700 px-4 py-2 rounded transition" data-tab="2">Tab 2</button>
+            <button class="tab-btn bg-gray-700 px-4 py-2 rounded transition" data-tab="3">Tab 3</button>
+        </div>
+        
+        <!-- Tabs Content -->
+        <div class="tab-content" id="tab-1">
+            <button class="w-full bg-green-600 p-3 rounded mb-2 transition button-action">set volume</button>
+            <input type="range" min="0" max="100" class="w-full mb-2">
+            <input type="text" placeholder="Enter command" class="w-full p-2 rounded bg-gray-700 text-white">
+        </div>
+        <div class="tab-content hidden" id="tab-2">
+            <button class="w-full bg-red-600 p-3 rounded mb-2 transition button-action">Mute</button>
+            <button class="w-full bg-yellow-600 p-3 rounded transition button-action">Channel Up</button>
+            <input type="text" placeholder="Channel number" class="w-full p-2 rounded bg-gray-700 text-white mt-2">
+        </div>
+        <div class="tab-content hidden" id="tab-3">
+            <button class="w-full bg-blue-600 p-3 rounded mb-2 transition button-action">Volume Up</button>
+            <button class="w-full bg-blue-600 p-3 rounded transition button-action">Volume Down</button>
+            <input type="text" placeholder="Volume level" class="w-full p-2 rounded bg-gray-700 text-white mt-2">
+        </div>
+    </div>
+    
+    <script>
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                let tabNumber = this.getAttribute('data-tab');
+                
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.add('hidden');
+                });
+                document.getElementById(`tab-${tabNumber}`).classList.remove('hidden');
+                
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('bg-blue-600');
+                    btn.classList.add('bg-gray-700');
+                });
+                this.classList.add('bg-blue-600');
+                this.classList.remove('bg-gray-700');
+            });
+        });
+
+        document.querySelectorAll('.button-action').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.add('button-clicked');
+                setTimeout(() => {
+                    this.classList.remove('button-clicked');
+                }, 200);
+                proccess(this.textContent);
+                showAlert("Button Clicked: " + this.textContent);
+            });
+        });
+        function proccess(mess)
+        {
+
+        }
+
+        function showAlert(message) {
+            const alertBox = document.getElementById('alert-box');
+            alertBox.textContent = message;
+            alertBox.style.display = 'block';
+            setTimeout(() => {
+                alertBox.style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
 </html>

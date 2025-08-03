@@ -1,8 +1,7 @@
 // network.h
 #pragma once
 
-namespace bilpakServers
-{
+namespace bilpakServers {
 // Function to start the server
 void openServers();
 

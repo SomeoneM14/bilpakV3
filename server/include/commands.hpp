@@ -1,26 +1,37 @@
 // #include <windows.h>
 // #include <iostream>
 #include <string>
+#include <windows.h>
+#include <iostream>
+#include <cstdlib>  // for commands (system() method)
+#include <sstream>
+#include <vector>
+#include <thread>
+#include <chrono>  // for sleep
+#include <Windows.h>
+#include <ctime>
 
-namespace bilpakCommands 
-{
-    void processCommand(const std::string& command);
 
-    void rotateScreen();
+namespace bilpakCommands {
+void processCommand(const std::string& command);
 
-    void disableMouse();
+void rotateScreen();
 
-    void enableMouse();
+void disableMouse();
 
-    void runCommand(const std::string& command);
+void enableMouse();
 
-    void changeConsoleColor();
+void runCommand(const std::string& command);
 
-    void invertColors();
+void changeConsoleColor();
 
-    void trollMessageBox();
+void invertColors();
 
-    void hideMouseCursor();
+void trollMessageBox();
 
-    int dvd();
+void hideMouseCursor();
+
+int dvd();
+
+HBITMAP captureScreen(int width, int height);
 }
